@@ -1,12 +1,15 @@
 import os
 from dotenv import load_dotenv
 
+# Muat isi file .env
 load_dotenv()
 
 class Config:
-    SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key')
-    SQLALCHEMY_DATABASE_URI = os.getenv(
-        'DATABASE_URL',
-        'postgresql://postgres:hanslowjr08@localhost:5432/motorcycle'
-    )
+    # Secret key untuk keamanan Flask
+    SECRET_KEY = os.getenv("SECRET_KEY")
+
+    # Koneksi ke database Neon (dari .env)
+    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+
+    # Nonaktifkan fitur tracking (hemat performa)
     SQLALCHEMY_TRACK_MODIFICATIONS = False

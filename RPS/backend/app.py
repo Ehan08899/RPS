@@ -26,5 +26,7 @@ app.register_blueprint(export_bp)
 def index():
     return {'message': 'Motorcycle Club Attendance API'}
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+if __name__ == "__main__":
+    from waitress import serve
+    print("🚀 Starting server on http://localhost:5000 ...")
+    serve(app, host="0.0.0.0", port=5000)
